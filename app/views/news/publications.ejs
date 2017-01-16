@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Publications</title>
-		</head>
-	<body>
-		<h1>Publications</h1>
-	</body>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8"/>
+            <title>News App</title>
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            <link href="css/style.css" rel="stylesheet">
+        </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/">HOME</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+         <div class="container">
+            <% if(publications.length > 0){ %>
+                <% for(var i = 0; i < publications.length; i++){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="news_wrapper">
+                                <span class="news_author"><%= publications[i].author %></span>
+                                <a href="publication?id=<%= publications[i].id%>" class="news_title"><%= publications[i].title %></a>
+                                <span class="news_date"><%= publications[i].date %></span>
+                                <br/>
+                                <p class="news_abstract"><%= publications[i].abstract %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+
+        <script src="js/jquery-2.2.1.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    </body>
 </html>

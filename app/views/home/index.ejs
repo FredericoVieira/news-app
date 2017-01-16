@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>News App</title>
-		</head>
-	<body>
-		<h1>Welcome! This is homepage.</h1>
-	</body>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8"/>
+            <title>News App</title>
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            <link href="css/style.css" rel="stylesheet">
+        </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/">HOME</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="news_wrapper">
+                        <span class="news_author"><%= publications[0].author%></span>
+                        <a href="publication?id=<%= publications[0].id%>" class="news_title"><%= publications[0].title%></a>
+                        <span class="news_date"><%= publications[0].date%></span>
+                        <br/>
+                        <p class="news_content"><%= publications[0].content%></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="news_wrapper">
+                        <span class="news_author"><%= publications[1].author%></span>
+                        <a href="publication?id=<%= publications[1].id%>" class="news_title"><%= publications[1].title%></a>
+                        <span class="news_date"><%= publications[1].date%></span>
+                        <br/>
+                        <p class="news_content"><%= publications[1].content%></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <% for(var i = 2; i < publications.length; i++){ %>
+                    <div class="col-md-4">
+                        <div class="news_wrapper">
+                            <span class="news_author"><%= publications[i].author %></span>
+                            <a href="publication?id=<%= publications[i].id%>" class="news_title"><%= publications[i].title %></a>
+                            <span class="news_date"><%= publications[i].date %></span>
+                            <br/>
+                            <p class="news_content"><%= publications[i].content %></p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="row see_more">
+                <button type="button" class="btn btn-default"><a href="publications">See all news</a></button>
+            </div>
+        </div>
+
+        <script src="js/jquery-2.2.1.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    </body>
 </html>
